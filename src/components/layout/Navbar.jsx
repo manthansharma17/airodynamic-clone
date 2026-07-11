@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   // Navigation items array to keep the HTML clean and scalable
-const navItems = [
-  { name: "Solutions", path: "/solutions" },
-  { name: "Model", path: "/model" },
-  { name: "Insight", path: "/insight" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" },
-];
+  const navItems = [
+    { name: "Solutions", path: "/solutions" },
+    { name: "Model", path: "/model" },
+    { name: "Insight", path: "/insight" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-6 pt-4">
       <div className="mx-auto h-[70px] w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
@@ -24,21 +24,31 @@ const navItems = [
                       to={item.path}
                       className={({ isActive }) =>
                         `group relative block h-6 overflow-hidden
-                    after:absolute
-                    after:left-0
-                    after:bottom-0
-                    after:h-[1.5px]
-                    after:w-full
-                    after:bg-stone-500
-                    after:origin-left
-                    after:transition-transform
-                    after:duration-500
-                    after:ease-[cubic-bezier(0.22,1,0.36,1)]
-                    ${
-                      isActive
-                        ? "after:scale-x-100"
-                        : "after:scale-x-0 hover:after:scale-x-100"
-                    }`
+                      before:absolute
+                      before:left-0
+                      before:bottom-0
+                      before:h-[1.5px]
+                      before:w-full
+                    before:bg-blue-950
+                      before:origin-left
+                      before:transition-transform
+                      before:duration-600
+
+                      after:absolute
+                      after:left-0
+                      after:bottom-0
+                      after:h-[1.5px]
+                      after:w-full
+                    after:bg-gray-400
+                      after:origin-left
+                      after:transition-transform
+                      after:duration-600
+
+    ${
+      isActive
+        ? "before:scale-x-100 after:scale-x-0"
+        : "before:scale-x-0 after:scale-x-0 hover:after:scale-x-100"
+    }`
                       }
                     >
                       {({ isActive }) => (
@@ -46,7 +56,7 @@ const navItems = [
                           className={`transition-transform duration-800 ease-[cubic-bezier(0.22,1,0.36,1)]
                       ${
                         isActive
-                          ? "-translate-y-6"
+                          ? " hover:-translate-y-6"
                           : "group-hover:-translate-y-6"
                       }`}
                         >
