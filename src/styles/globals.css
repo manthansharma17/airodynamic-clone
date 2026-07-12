@@ -1,12 +1,54 @@
-@import url('https://googleapis.com');
+@import url("https://googleapis.com");
 @import "tailwindcss";
 
 /* ==========================================
    Reset
 ========================================== */
 
+/* ─── Custom Fonts ─────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "QuariaDisplay";
+  src: url("/fonts/QuariaTextTest-Regular-BF6417d830ce5c1.woff") format("woff");
+  font-display: swap;
+  font-weight: 100 999;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "QuariaDisplay";
+  src: url("/fonts/QuariaTextTest-Regular-BF6417d830ce5c1.woff") format("woff");
+  font-display: swap;
+  font-weight: 100 999;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Unica77";
+  src: url("/fonts/CanelaText-LightItalic-Trial.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Unica77";
+  src: url("/fonts/CanelaText-RegularNo2Italic-Trial.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 500 999;
+  font-style: normal;
+}
+
 @theme {
-  --font-unica: "Unica One", cursive;
+  --font-heading: "QuariaDisplay";
+  --font-sub: "Unica77",Arial, sans-serif;
+
+  --color-nachtblauw: #05275b;
+  --color-nachtblauw-dark: #071831;
+  --color-middernachtblauw: #0b2348;
+  --color-wolkenwit: #fcfdfe;
+  --color-hemelsblauw: #008aff;
+  --color-helderblauw: #e3ebf1;
+  --color-error: #ee5253;
 }
 
 *,
@@ -23,12 +65,16 @@
 html {
   scroll-behavior: smooth;
   background-color: #ffffff;
+  color: #ffffff;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
-
+  /* font-family: "Unica77", ui-sans-serif, system-ui, sans-serif; */
+  /* color: var(--color-nachtblauw); */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img,
@@ -58,4 +104,3 @@ ol {
 }
 
 /* cloud */
-
