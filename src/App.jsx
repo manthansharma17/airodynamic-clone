@@ -11,6 +11,8 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
+
+
   return (
     <Routes>
       <Route element={<Layout />}>
@@ -26,3 +28,4 @@ export default function App() {
     </Routes>
   );
 }
+

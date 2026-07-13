@@ -1,25 +1,23 @@
 import { useEffect } from "react";
-import Hero from "../components/sections/home/Hero";  
-import Header from "../components/layout/Navbar"; 
+import Hero from "../components/sections/home/Hero";
 import Content from "../components/sections/home/Content";
-
+import RevealSection from "../components/sections/home/RevealSection";
 import initLenis from "../animations/lenis";
-
 
 export default function Home() {
   useEffect(() => {
-  const lenis = initLenis();
+    const cleanup = initLenis();
 
-  return () => {
-    lenis.destroy();
-  };
-}, []);
- 
-  return(
+    return cleanup;
+  }, []);
+
+  return (
     <>
-    <Hero />
-    <Content />
+    <section>
+      <Hero />
+      <Content />
+      <RevealSection />
+      </section>
     </>
-  )
-
+  );
 }

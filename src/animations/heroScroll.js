@@ -1,72 +1,91 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
+gsap.registerPlugin(ScrollTrigger);
 
 export default function heroScroll(hero) {
-    
-    gsap.registerPlugin(ScrollTrigger);
+  return (
+    gsap
+      .timeline({
+        defaults: {
+          ease: "none",
+        },
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "bottom top",
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.6,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
+          // markers: true, // Debug ke liye on kar sakte ho
+        },
+      })
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: hero,
-      start: "top top",
-      end: "+=140%",
-      pin: true,
-      scrub: 1.5,
-      anticipatePin: 1,
-    },
-  });
+      // Hero Text
+      .to(
+        ".hero-title",
+        {
+          y: -220,
+          opacity: 0,
+        },
+        0,
+      )
 
-  tl.to(
-    ".hero-title",
-    {
-      y: -500,
-      opacity: 0,
-    },
-    0,
-  )
+      // Desktop Search
+      .to(
+        ".hero-search",
+        {
+          y: -80,
+          opacity: 0,
+        },
+        0,
+      )
 
-    .to(
-      ".hero-search",
-      {
-        y: -100,
-        opacity:0,
-      },
-      0,
-    )
+      // Mobile Button
+      .to(
+        ".hero-book-trigger",
+        {
+          y: -80,
+          opacity: 0,
+        },
+        0,
+      )
 
-    .to(
-      ".cloud-track-2",
-      {
-        y: -420,
-        
-      },
-      0,
-    )
+      // Clouds
+      .to(
+        ".cloud-track-2",
+        {
+          y: -220,
+        },
+        0,
+      )
 
-    .to(
-      ".cloud-track-1",
-      {
-        y: -220,
-        // scale: 1.1,
-      },
-      0,
-    )
+      .to(
+        ".cloud-track-1",
+        {
+          y: -120,
+        },
+        0,
+      )
 
-    .to(
-      ".cloud-track-0",
-      {
-        y: -100,
-      },
-      0,
-    )
+      .to(
+        ".cloud-track-0",
+        {
+          y: -60,
+        },
+        0,
+      )
 
-    .to(
-      ".sky",
-      {
-        scale: 1.08,
-      },
-      0,
-    );
+      // Sky Zoom
+      .to(
+        ".sky",
+        {
+          scale: 1.06,
+        },
+        0,
+      )
+  );
 }
