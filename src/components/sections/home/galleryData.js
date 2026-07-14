@@ -1,24 +1,24 @@
 const galleryData = [
   {
     id: 1,
-    title: "Cloud Infrastructure",
+    title: "Private Charter",
     description:
-      "Build scalable cloud-native systems with security, automation and speed.",
-    image: "/images/asset 3.jpg",
+      "Travel in complete luxury with our tailored private charter experience.",
+    image: "/images/gallery-1.jpeg",
   },
   {
     id: 2,
-    title: "AI Automation",
+    title: "Business Aviation",
     description:
-      "Automate repetitive workflows using intelligent AI agents and integrations.",
-    image: "/images/asset 4.webp",
+      "Save valuable time with flexible schedules built around your needs.",
+    image: "/images/gallery-2.webp",
   },
   {
     id: 3,
-    title: "Analytics",
+    title: "Global Destinations",
     description:
-      "Turn raw data into meaningful business insights using interactive dashboards.",
-    image: "/images/asset 5.webp",
+      "Reach thousands of airports worldwide with unmatched convenience.",
+    image: "/images/gallery-3.webp",
   },
 ];
 

@@ -5,8 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function heroScroll(hero) {
   return (
-    gsap
-      .timeline({
+    gsap.timeline({
         defaults: {
           ease: "none",
         },
@@ -20,7 +19,7 @@ export default function heroScroll(hero) {
           anticipatePin: 1,
           invalidateOnRefresh: true,
           fastScrollEnd: true,
-          // markers: true, // Debug ke liye on kar sakte ho
+          markers: true, 
         },
       })
 
