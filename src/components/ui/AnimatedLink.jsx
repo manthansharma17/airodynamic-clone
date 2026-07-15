@@ -13,11 +13,10 @@ export default function AnimatedLink({
       to={to}
       className={({ isActive }) =>
         `
-        group
-        relative
-        block
-        h-7
-        overflow-hidden
+       group
+relative
+inline-block
+overflow-hidden
         ${className}
 
         ${
@@ -56,13 +55,7 @@ export default function AnimatedLink({
       `
       }
     >
-      <AnimatedText
-        height="h-6"
-        duration="duration-700"
-        translate="-translate-y-6"
-      >
-        {children}
-      </AnimatedText>
+      <AnimatedText duration="duration-700">{children}</AnimatedText>
     </NavLink>
   );
 }

@@ -2,37 +2,39 @@ import React from "react";
 
 export default function AnimatedText({
   children,
+  duration = "duration-700",
   className = "",
-  height = "h-11",
-  duration = "duration-500",
-  translate = "-translate-y-11",
-  ease = "ease-[cubic-bezier(.22,1,.36,1)]",
 }) {
   return (
-    <div
-      className={`
-        ${height}
-        overflow-hidden
-        ${className}
-      `}
+    <span
+      className={`relative inline-block overflow-hidden leading-none ${className}`}
     >
-      <div
+      <span
         className={`
-          h-fit
+          block
           transition-transform
           ${duration}
-          ${ease}
-          group-hover:${translate}
+          ease-[cubic-bezier(.22,1,.36,1)]
+          group-hover:-translate-y-full
         `}
       >
-        <div className={`flex ${height} items-center justify-center`}>
-          {children}
-        </div>
+        {children}
+      </span>
 
-        <div className={`flex ${height} items-center justify-center`}>
-          {children}
-        </div>
-      </div>
-    </div>
+      <span
+        className={`
+          absolute
+          left-0
+          top-full
+          block
+          transition-transform
+          ${duration}
+          ease-[cubic-bezier(.22,1,.36,1)]
+          group-hover:-translate-y-full
+        `}
+      >
+        {children}
+      </span>
+    </span>
   );
 }

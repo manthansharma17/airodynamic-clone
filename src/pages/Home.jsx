@@ -6,6 +6,8 @@ import Window from "../components/sections/home/Plane";
 import initLenis from "../animations/lenis";
 import PlaneButton from "../components/sections/home/PlaneButton";
 import OverAeroSection from "../components/sections/home/OverAero";
+import InsightsSection from "../components/sections/home/InsightsSection";
+import InstagramSection from "../components/sections/home/InstagramSection";
 
 export default function Home() {
   useEffect(() => {
@@ -23,6 +25,8 @@ export default function Home() {
         <Window />
         <PlaneButton />
         <OverAeroSection />
+        <InsightsSection />
+        <InstagramSection />
 
       </section>
     </>

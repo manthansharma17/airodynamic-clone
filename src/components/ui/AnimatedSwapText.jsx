@@ -14,7 +14,7 @@ export default function AnimatedSwapText({
           transition-transform
           ${duration}
           ease-[cubic-bezier(.22,1,.36,1)]
-          group-hover:-translate-y-full
+          group-hover:-translate-y-11
         `}
       >
         <div className={`flex ${height} items-center justify-center`}>

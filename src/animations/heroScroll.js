@@ -19,7 +19,8 @@ export default function heroScroll(hero) {
           anticipatePin: 1,
           invalidateOnRefresh: true,
           fastScrollEnd: true,
-          markers: true, 
+          // markers: true,
+
         },
       })
 
