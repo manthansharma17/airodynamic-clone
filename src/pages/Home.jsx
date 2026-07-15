@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 import Hero from "../components/sections/home/Hero";
 import StorySection from "../components/sections/home/StorySection";
-// import Content from "../components/sections/home/Content";
-// import About from "../components/sections/home/About";
-// import Gallery from "../components/sections/home/Gallery";
-// import RevealSection from "../components/sections/home/RevealSection";
+import Services from "../components/sections/home/Services";
+import Window from "../components/sections/home/Plane";
 import initLenis from "../animations/lenis";
 
 export default function Home() {
@@ -19,8 +17,9 @@ export default function Home() {
       <section>
         <Hero />
         <StorySection />
-        {/* <Content /> */}
-        {/* <RevealSection /> */}
+        <Services />
+        <Window />
+
       </section>
     </>
   );
