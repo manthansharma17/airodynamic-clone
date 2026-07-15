@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
-export default function Header() {
-  // Navigation items array to keep the HTML clean and scalable
+import AnimatedLink from "@/components/ui/AnimatedLink";
+import AnimatedButton from "@/components/ui/AnimatedButton";
+import AnimatedSwapText from "@/components/ui/AnimatedSwapText";
+import AnimatedSwapIcon from "@/components/ui/AnimatedSwapIcon";
+import AnimatedText from "@/components/ui/AnimatedText";
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navItems = [
     { name: "Solutions", path: "/solutions" },
     { name: "Model", path: "/model" },
@@ -13,52 +19,21 @@ export default function Header() {
     { name: "Contact", path: "/contact" },
   ];
 
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <>
-      <header className="absolute inset-x-0 top-0 z-70 px-6 pt-3">
+      <header className="absolute inset-x-0 top-0 z-[70] px-6 pt-3">
         <div className="mx-auto h-[70px] w-full">
-          {/* ================= Desktop ================= */}
+          {/* ========================= Desktop ========================= */}
+
           <div className="hidden h-full items-center px-[30px] md:flex">
             {/* Left Navigation */}
+
             <div className="flex-1">
               <nav>
                 <ul className="flex items-center gap-8 font-Unica text-[14px]">
                   {navItems.map((item) => (
                     <li key={item.name}>
-                      <NavLink
-                        to={item.path}
-                        className={({ isActive }) =>
-                          `group relative block h-7 overflow-hidden
-                    before:absolute before:left-0 before:bottom-0 before:h-[1.45px] before:w-full
-                    before:bg-blue-950 before:origin-left before:transition-transform before:duration-600
-                    after:absolute after:left-0 after:bottom-0 after:h-[1.5px] after:w-full
-                    after:bg-gray-400 after:origin-left after:transition-transform after:duration-600
-                    ${
-                      isActive
-                        ? "before:scale-x-100 after:scale-x-0"
-                        : "before:scale-x-0 after:scale-x-0 hover:after:scale-x-100"
-                    }`
-                        }
-                      >
-                        {({ isActive }) => (
-                          <div
-                            className={`transition-transform duration-700 ${
-                              isActive
-                                ? "hover:-translate-y-6"
-                                : "group-hover:-translate-y-6"
-                            }`}
-                          >
-                            <span className="flex h-6 items-center">
-                              {item.name}
-                            </span>
-                            <span className="flex h-6 items-center">
-                              {item.name}
-                            </span>
-                          </div>
-                        )}
-                      </NavLink>
+                      <AnimatedLink to={item.path}>{item.name}</AnimatedLink>
                     </li>
                   ))}
                 </ul>
@@ -66,91 +41,245 @@ export default function Header() {
             </div>
 
             {/* Logo */}
+
             <div className="flex flex-1 justify-center">
               <NavLink to="/">
                 <img
                   src="/images/logo/logo_white.svg"
                   alt="Logo"
-                  className="h-[33px] w-[43px] "
+                  className="h-[33px] w-[43px]"
                 />
               </NavLink>
             </div>
 
-            {/* Right */}
+            {/* Right Actions */}
+
             <div className="flex flex-1 items-center justify-end gap-3">
-              <div className="group h-11 w-11 overflow-hidden rounded-full border border-white/10 transition-all duration-500 hover:bg-white">
-                <div className="transition-transform duration-500 group-hover:-translate-y-11">
-                  <div className="flex h-11 items-center justify-center">
-                    <img
-                      src="/icons/language_white.svg"
-                      className="h-4 w-4"
-                      alt=""
-                    />
-                  </div>
+              {/* Language */}
 
-                  <div className="flex h-11 items-center justify-center">
-                    <img src="/icons/language.svg" className="h-4 w-4" alt="" />
-                  </div>
-                </div>
-              </div>
+              <AnimatedButton
+                className="
+                  h-11
+                  w-11
+                  rounded-full
+                  border
+                  border-white/10
+                  hover:bg-white
+                "
+              >
+                <AnimatedSwapIcon
+                  firstIcon="/icons/language_white.svg"
+                  secondIcon="/icons/language.svg"
+                />
+              </AnimatedButton>
 
-              <button className="group h-11 overflow-hidden rounded-full border border-white/10 px-8 text-white transition hover:bg-white hover:text-blue-950">
-                <div className="transition-transform duration-500 group-hover:-translate-y-11">
-                  <div className="flex h-11 items-center">Flight estimate</div>
+              {/* Flight Estimate */}
 
-                  <div className="flex h-11 items-center">Book Now →</div>
-                </div>
-              </button>
+              <AnimatedButton
+                className="
+                  rounded-full
+                  border
+                  border-white/10
+                  px-8
+                  text-white
+                  hover:bg-white
+                  hover:text-[#0B2D63]
+                "
+              >
+                <AnimatedSwapText first="Flight estimate" second="Book Now →" />
+              </AnimatedButton>
             </div>
           </div>
 
-          {/* ================= Mobile ================= */}
-          <div className="flex h-full items-center justify-between md:hidden">
-            <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20">
-              <img src="/icons/language.svg" className="h-4 w-4" alt="" />
-            </button>
+          {/* ========================= Mobile Header ========================= */}
 
-            <NavLink to="/">
+          <div className="flex h-full items-center justify-between md:hidden">
+            {/* Language */}
+
+            <AnimatedButton
+              className="
+                h-11
+                w-11
+                rounded-full
+                border
+                border-white/20
+                hover:bg-white
+                active:scale-95
+              "
+              aria-label="Language"
+            >
+              <AnimatedSwapIcon
+                firstIcon="/icons/language_white.svg"
+                secondIcon="/icons/language.svg"
+              />
+            </AnimatedButton>
+
+            {/* Logo */}
+
+            <NavLink
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center justify-center"
+            >
               <img
-                src="/images/logo/logo.svg"
-                className="h-[33px] w-[43px]  brightness-0 invert"
-                alt=""
+                src="/images/logo/logo_white.svg"
+                alt="Logo"
+                className="h-[33px] w-[43px]"
               />
             </NavLink>
 
+            {/* Menu */}
+
             <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-white"
+              type="button"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label={menuOpen ? "Close Menu" : "Open Menu"}
+              className="
+                flex
+                h-11
+                w-11
+                items-center
+                justify-center
+                rounded-full
+                bg-white
+                transition-transform
+                duration-300
+                active:scale-95
+              "
             >
               {menuOpen ? (
-                <X size={22} color="#0B2E67" />
+                <X size={22} className="text-[#0B2D63]" />
               ) : (
-                <Menu size={22} color="#0B2E67" />
+                <Menu size={22} className="text-[#0B2D63]" />
               )}
             </button>
           </div>
         </div>
       </header>
 
+      {/* ========================= Mobile Drawer ========================= */}
+
       <div
-        className={`fixed inset-0 z-[60] bg-[#0B2E67] text-white transition-transform duration-500 md:hidden ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`
+          fixed
+          inset-0
+          z-[60]
+          md:hidden
+          transition-all
+          duration-500
+          ease-[cubic-bezier(.22,1,.36,1)]
+          ${
+            menuOpen
+              ? "pointer-events-auto opacity-100"
+              : "pointer-events-none opacity-0"
+          }
+        `}
       >
-        <div className="flex h-full flex-col justify-center px-8">
-          <ul className="space-y-8">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <NavLink
-                  to={item.path}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-4xl font-light"
+        {/* Backdrop */}
+
+        <div
+          onClick={() => setMenuOpen(false)}
+          className={`
+            absolute
+            inset-0
+            bg-black/35
+            backdrop-blur-sm
+            transition-opacity
+            duration-500
+            ${menuOpen ? "opacity-100" : "opacity-0"}
+          `}
+        />
+
+        {/* Drawer */}
+
+        <div
+          className={`
+            absolute
+            right-0
+            top-0
+            flex
+            h-full
+            w-full
+            flex-col
+            bg-[#0B2D63]
+            transition-transform
+            duration-700
+            ease-[cubic-bezier(.22,1,.36,1)]
+            ${menuOpen ? "translate-x-0" : "translate-x-full"}
+          `}
+        >
+          {/* Top spacing */}
+
+          <div className="h-[95px]" />
+
+          {/* Navigation */}
+
+          <nav className="flex-1 px-8">
+            <ul className="space-y-7">
+              {navItems.map((item, index) => (
+                <li
+                  key={item.name}
+                  className={`
+                    transition-all
+                    duration-700
+                    ${
+                      menuOpen
+                        ? "translate-x-0 opacity-100"
+                        : "translate-x-10 opacity-0"
+                    }
+                  `}
+                  style={{
+                    transitionDelay: `${index * 70}ms`,
+                  }}
                 >
-                  {item.name}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+                  <NavLink
+                    to={item.path}
+                    onClick={() => setMenuOpen(false)}
+                    className="group inline-block overflow-hidden"
+                  >
+                    <AnimatedText height="h-12" translate="-translate-y-12">
+                      <span className="text-[42px] font-light leading-none tracking-[-1px]">
+                        {item.name}
+                      </span>
+                    </AnimatedText>
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Bottom */}
+
+          <div
+            className={`
+              border-t
+              border-white/10
+              px-8
+              py-8
+              transition-all
+              duration-700
+              delay-300
+              ${
+                menuOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }
+            `}
+          >
+            <AnimatedButton
+              className="
+                w-full
+                rounded-full
+                border
+                border-white/20
+                text-white
+                hover:bg-white
+                hover:text-[#0B2D63]
+              "
+            >
+              <AnimatedSwapText first="Flight Estimate" second="Book Now →" />
+            </AnimatedButton>
+          </div>
         </div>
       </div>
     </>

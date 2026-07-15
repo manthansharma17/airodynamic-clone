@@ -87,7 +87,7 @@ export default function Globe3DDemoSecond() {
     <div className="relative h-full w-full overflow-hidden">
       
       <Globe3D
-        className="absolute bottom-[-30%] left-1/2 h-[140%] w-[140%] -translate-x-1/2"
+        className="absolute bottom-[-30%] left-1/2 h-[150%] w-[150%] -translate-x-1/2"
         markers={sampleMarkers}
         config={{
           atmosphereColor: "#4da6ff",

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import heroAnimation from "./PlaneAnimation";
-import {ArrowRight} from "lucide-react";
-import Globe3DDemoSecond from "./3d-globe-demo-2"
+import { ArrowRight } from "lucide-react";
+import Globe3DDemoSecond from "./3d-globe-demo-2";
 const Plane = () => {
   const planeRef = useRef(null);
 
@@ -20,20 +20,27 @@ const Plane = () => {
         className="hero relative h-screen overflow-hidden text-[#e3e3db] [perspective:1000px]"
       >
         {/* SKY */}
-        <div className="sky-container overflow-hidden absolute left-0 top-0 h-[350svh] w-full will-change-transform">
+        <div className="sky-container overflow-hidden absolute left-0 top-0 h-[140svh] w-full will-change-transform">
           <img
-            src="/images/sky1.png"
+            src="/images/sky3.png"
             alt=""
             className="h-full w-full object-cover"
           />
 
           <div className="sky-text absolute pointer-events-none left-full top-[40%] z-10 w-max whitespace-nowrap">
-            <h1 className="text-[15vw] font-heading font-medium uppercase leading-none text-[rgba(105,150,255,0.58)]">
+            <h1 className="text-[15vw] font-heading font-medium uppercase leading-none text-[rgba(255,255,255,0.93)]">
               The Sky is Yours
             </h1>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
+          <img
+            src="/images/front.webp"
+            alt=""
+            className="absolute bottom-[-5%] w-screen object-cover opacity-100 "
+          ></img>
+        </div>
 
-          <div className=" absolute left-1/2 top-[62%] w-full max-w-7xl -translate-x-1/2 px-8">
+        {/* <div className=" absolute left-1/2 top-[62%] w-full max-w-7xl -translate-x-1/2 px-8">
             <div className="flex items-center justify-between">
               <h2 className="font-heading text-[56px] leading-none tracking-[-3px] text-[#0B2D63]">
                 Our aircrafts
@@ -67,12 +74,16 @@ const Plane = () => {
                 <span>
                   world from the air. Always in motion, anywhere in the world.
                 </span>{" "}
-                
               </p>
             </div>
             <Globe3DDemoSecond />
           </div>
-        </div>
+          <img
+            src="/images/front.webp"
+            alt=""
+            className="absolute bottom-[-5%] w-screen object-cover opacity-65 "
+          />
+        </div> */}
 
         {/* HERO COPY */}
         {/* Uncomment later if needed */}
@@ -86,6 +97,7 @@ const Plane = () => {
 
         {/* WINDOW */}
         <div className="window-container absolute left-0 top-0 h-screen w-full">
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" /> */}
           <img
             src="/images/window.webp"
             alt=""
