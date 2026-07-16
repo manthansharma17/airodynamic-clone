@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-
 import AnimatedLink from "@/components/ui/AnimatedLink";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import AnimatedSwapText from "@/components/ui/AnimatedSwapText";
 import AnimatedSwapIcon from "@/components/ui/AnimatedSwapIcon";
 import AnimatedText from "@/components/ui/AnimatedText";
+import Checkbox from "@/components/ui/hamburger";
+
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="mx-auto h-[70px] w-full">
           {/* ========================= Desktop ========================= */}
 
-          <div className="hidden h-full items-center px-[30px] md:flex">
+          <div className="hidden h-full items-center px-[30px] lg:flex">
             {/* Left Navigation */}
 
             <div className="flex-1">
@@ -93,7 +93,7 @@ export default function Navbar() {
 
           {/* ========================= Mobile Header ========================= */}
 
-          <div className="flex h-full items-center justify-between md:hidden">
+          <div className="flex h-full items-center justify-between lg:hidden  ">
             {/* Language */}
 
             <AnimatedButton
@@ -130,29 +130,12 @@ export default function Navbar() {
 
             {/* Menu */}
 
-            <button
-              type="button"
-              onClick={() => setMenuOpen((prev) => !prev)}
-              aria-label={menuOpen ? "Close Menu" : "Open Menu"}
-              className="
-                flex
-                h-11
-                w-11
-                items-center
-                justify-center
-                rounded-full
-                bg-white
-                transition-transform
-                duration-300
-                active:scale-95
-              "
-            >
-              {menuOpen ? (
-                <X size={22} className="text-[#0B2D63]" />
-              ) : (
-                <Menu size={22} className="text-[#0B2D63]" />
-              )}
-            </button>
+            <div className="flex h-11 w-11 items-center justify-center border border-white/20  rounded-full bg-transparent lg:hidden">
+              <Checkbox
+                checked={menuOpen}
+                onChange={() => setMenuOpen((prev) => !prev)}
+              />
+            </div>
           </div>
         </div>
       </header>
@@ -164,7 +147,7 @@ export default function Navbar() {
           fixed
           inset-0
           z-[60]
-          md:hidden
+          lg:hidden
           transition-all
           duration-500
           ease-[cubic-bezier(.22,1,.36,1)]
@@ -183,7 +166,7 @@ export default function Navbar() {
             absolute
             inset-0
             bg-black/35
-            backdrop-blur-sm
+            
             transition-opacity
             duration-500
             ${menuOpen ? "opacity-100" : "opacity-0"}
@@ -196,12 +179,14 @@ export default function Navbar() {
           className={`
             absolute
             right-0
+            z-150
             top-0
             flex
             h-full
-            w-full
+            w-[300px]
             flex-col
-            bg-[#0B2D63]
+            bg-black/20
+            
             transition-transform
             duration-700
             ease-[cubic-bezier(.22,1,.36,1)]
@@ -210,12 +195,12 @@ export default function Navbar() {
         >
           {/* Top spacing */}
 
-          <div className="h-[95px]" />
+          <div className="h-[175px]" />
 
           {/* Navigation */}
 
-          <nav className="flex-1 px-8">
-            <ul className="space-y-7">
+          <nav className="flex-1 px-8 py-2">
+            <ul className="flex flex-col gap-4">
               {navItems.map((item, index) => (
                 <li
                   key={item.name}
@@ -237,8 +222,8 @@ export default function Navbar() {
                     onClick={() => setMenuOpen(false)}
                     className="group inline-block overflow-hidden"
                   >
-                    <AnimatedText height="h-12" translate="-translate-y-12">
-                      <span className="text-[42px] font-light leading-none tracking-[-1px]">
+                    <AnimatedText className="group-hover:text-zinc-400 h-[42px]">
+                      <span className="text-[36px] font-light leading-none tracking-[-1px]">
                         {item.name}
                       </span>
                     </AnimatedText>

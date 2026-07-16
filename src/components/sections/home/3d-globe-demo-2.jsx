@@ -84,14 +84,29 @@ const sampleMarkers = [
 
 export default function Globe3DDemoSecond() {
   return (
-    <div className="relative h-full w-full overflow-hidden">
-      
+    <div className="relative h-full w-full">
       <Globe3D
-        className="absolute bottom-[-30%] left-1/2 h-[150%] w-[150%] -translate-x-1/2"
+        className="
+absolute
+left-1/2
+bottom-[-80%]
+-translate-x-1/2
+
+w-[220%]
+h-[220%]
+
+md:bottom-[-60%]
+md:w-[220%]
+md:h-[220%]
+
+lg:bottom-[-150%]
+lg:w-[270%]
+lg:h-[270%]
+"
         markers={sampleMarkers}
         config={{
-          atmosphereColor: "#4da6ff",
-          atmosphereIntensity: 80,
+          atmosphereColor: "#e3e3db",
+          atmosphereIntensity: 10,
           bumpScale: 5,
           autoRotateSpeed: 0.3,
         }}

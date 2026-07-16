@@ -2,14 +2,16 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function OverAeroSection() {
   return (
-    <section className="relative bg-white pt-40 pb-24 lg:pt-52 lg:pb-36">
+    <section className="relative bg-white pb-24 lg:pt-45 lg:pb-36">
       {/* Cloud Overlay */}
       <img
         src="/images/front.webp"
         alt=""
         aria-hidden="true"
-        className="absolute top-[-5%] inset-x-0 left-0 w-full select-none pointer-events-none z-10 object-cover "
+        className="absolute  h-50 lg:h-100 z-10  left-0 w-full opacity-100  object-cover sm:hidden md:hidden "
       />
+
+      <div className="absolute lg:h-100 lg:top-[-52vh] top-[-28%] inset-0 bg-gradient-to-t z-10 from-white via-white/50 to-transparent" />
 
       <div className="relative z-20 mx-auto flex max-w-7xl flex-col items-center gap-16 px-6 lg:flex-row lg:px-12">
         {/* Left Image */}
@@ -18,7 +20,7 @@ export default function OverAeroSection() {
             <img
               src="/images/overaero.webp"
               alt="Private Jet"
-              className="h-[650px] w-full object-cover"
+              className=" h-[40px] lg:h-[650px] w-full object-cover"
             />
           </div>
         </div>

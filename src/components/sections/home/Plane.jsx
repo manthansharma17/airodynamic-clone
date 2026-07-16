@@ -17,10 +17,10 @@ const Plane = () => {
     <>
       <div
         ref={planeRef}
-        className="hero relative h-screen overflow-hidden text-[#e3e3db] [perspective:1000px]"
+        className="hero relative h-screen overflow-bottom-hidden text-[#e3e3db] [perspective:125px]"
       >
         {/* SKY */}
-        <div className="sky-container overflow-hidden absolute left-0 top-0 h-[140svh] w-full will-change-transform">
+        <div className="sky-container overflow-hidden absolute left-0 top-0 h-screen lg:h-[130svh] sm:h-[150svh] w-full will-change-transform">
           <img
             src="/images/sky3.png"
             alt=""
@@ -32,6 +32,32 @@ const Plane = () => {
               The Sky is Yours
             </h1>
           </div>
+
+          {/* <div className="hero-copy absolute z-10 left-0 flex h-screen w-full items-center justify-center will-change-transform sm:top-[60%] md: lg:top-[70%] xl:">
+        <div className="mx-auto flex w-full flex-col items-center justify-between gap-8 px-6 pt-12 pb-12 sm:px-8 md:flex-row md:px-12 lg:px-[8%] xl:px-[15%] xl:pb-[10%]">
+                  <h2 className="font-heading text-center text-[36px] leading-none tracking-[-1px] text-[#0B2D63] sm:text-[44px] md:text-[48px] lg:text-[56px] lg:tracking-[-3px] md:text-left">
+                    Our aircrafts
+                  </h2>
+        
+                  <button className="group flex items-center gap-3 rounded-full border border-gray-300 px-5 py-3 text-base font-medium text-[#0B2D63] transition-all duration-300 hover:bg-[#0B2D63] hover:text-white sm:px-6 sm:py-4 sm:text-lg">
+                    <span>View all</span>
+        
+                    <div className="relative h-6 w-6 overflow-hidden">
+                      <ArrowRight
+                        size={22}
+                        className="absolute transition-all duration-300 group-hover:translate-x-6"
+                      />
+        
+                      <ArrowRight
+                        size={22}
+                        className="absolute -translate-x-6 transition-all duration-300 group-hover:translate-x-0"
+                      />
+                    </div>
+                  </button>
+                </div>
+                </div> */}
+
+
           <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
           <img
             src="/images/front.webp"
@@ -40,60 +66,14 @@ const Plane = () => {
           ></img>
         </div>
 
-        {/* <div className=" absolute left-1/2 top-[62%] w-full max-w-7xl -translate-x-1/2 px-8">
-            <div className="flex items-center justify-between">
-              <h2 className="font-heading text-[56px] leading-none tracking-[-3px] text-[#0B2D63]">
-                Our aircrafts
-              </h2>
-
-              <button className="group flex items-center gap-4 rounded-full border border-gray-300 px-5 py-4 text-lg font-medium text-[#0B2D63] transition-all duration-300 hover:bg-[#0B2D63] hover:text-white">
-                <span>View all</span>
-
-                <div className="relative h-6 w-6 overflow-hidden">
-                  <ArrowRight
-                    size={22}
-                    className="absolute transition-all duration-300 group-hover:translate-x-6"
-                  />
-
-                  <ArrowRight
-                    size={22}
-                    className="absolute -translate-x-6 transition-all duration-300 group-hover:translate-x-0"
-                  />
-                </div>
-              </button>
-            </div>
-          </div>
-          <div className="absolute top-[75%] left-0 w-full h-[30%]">
-            <div className="relative py-7 flex flex-col items-center justify-evenly">
-              <h2 className="mb-5 pb-1 text-5xl font-heading text-white">
-                From A to Anywhere
-              </h2>
-              <p className="max-w-lg pt-4 text-center text-sub text-whit">
-                From Europe to Asia, from North to South America. We connect the{" "}
-                <br />{" "}
-                <span>
-                  world from the air. Always in motion, anywhere in the world.
-                </span>{" "}
-              </p>
-            </div>
-            <Globe3DDemoSecond />
-          </div>
-          <img
-            src="/images/front.webp"
-            alt=""
-            className="absolute bottom-[-5%] w-screen object-cover opacity-65 "
-          />
-        </div> */}
+       
 
         {/* HERO COPY */}
         {/* Uncomment later if needed */}
-        {/*
-      <div className="hero-copy absolute left-0 top-0 flex h-screen w-full items-center justify-center will-change-transform">
-        <h1 className="w-[85%] text-[clamp(5rem,6vw,7rem)] font-medium leading-[0.8]">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </h1>
-      </div>
-      */}
+        
+      
+  
+     
 
         {/* WINDOW */}
         <div className="window-container absolute left-0 top-0 h-screen w-full">

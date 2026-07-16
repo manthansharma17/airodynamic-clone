@@ -13,10 +13,11 @@ export default function AnimatedLink({
       to={to}
       className={({ isActive }) =>
         `
-       group
+group
 relative
-inline-block
-overflow-hidden
+inline-flex
+items-center
+py-1
         ${className}
 
         ${
@@ -35,7 +36,7 @@ overflow-hidden
             after:absolute
             after:left-0
             after:bottom-0
-            after:h-[1.5px]
+            after:h-[1.4px]
             after:w-full
             after:bg-[#9CA3AF]
             after:origin-left

@@ -13,7 +13,7 @@ export default function planeAnimation(planeRef) {
 
     const windowContainer = plane.querySelector(".window-container");
     const skyContainer = plane.querySelector(".sky-container");
-    // const heroCopy = hero.querySelector(".hero-copy");
+    // const heroCopy = plane.querySelector(".hero-copy");
     const windowHeader = plane.querySelector(".window-header");
     const skyText = plane.querySelector(".sky-text");
 
@@ -79,21 +79,22 @@ export default function planeAnimation(planeRef) {
         // HERO COPY (currently disabled like original)
         // ------------------------------------------------
 
-        /*
-        let heroCopyY;
+        
+        // let heroCopyY;
 
-        if (progress <= 0.66) {
-          heroCopyY = 100;
-        } else if (progress >= 1) {
-          heroCopyY = 0;
-        } else {
-          heroCopyY = 100 * (1 - (progress - 0.66) / 0.34);
-        }
+        // if (progress <= 0.83) {
+        //   heroCopyY = 100;
+        // } else if (progress >= 1) {
+        //   heroCopyY = 0;
+        // } else {
+        //   heroCopyY = 100 * (1 - (progress - 0.83) / 0.7);
+        // }
 
-        gsap.set(heroCopy, {
-          yPercent: heroCopyY,
-        });
-        */
+        // gsap.to(heroCopy, {
+        //   y: -120,
+        //   duration: 1,
+        // });
+        
       },
     });
 

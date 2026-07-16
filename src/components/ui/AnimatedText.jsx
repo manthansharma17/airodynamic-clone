@@ -2,16 +2,18 @@ import React from "react";
 
 export default function AnimatedText({
   children,
-  duration = "duration-700",
   className = "",
+  duration = "duration-800",
 }) {
   return (
     <span
-      className={`relative inline-block overflow-hidden leading-none ${className}`}
+      className={`relative inline-grid overflow-hidden ${className}`}
     >
+      {/* First text */}
       <span
         className={`
-          block
+          col-start-1
+          row-start-1
           transition-transform
           ${duration}
           ease-[cubic-bezier(.22,1,.36,1)]
@@ -21,16 +23,16 @@ export default function AnimatedText({
         {children}
       </span>
 
+      {/* Second text */}
       <span
         className={`
-          absolute
-          left-0
-          top-full
-          block
+          col-start-1
+          row-start-1
+          translate-y-full
           transition-transform
           ${duration}
           ease-[cubic-bezier(.22,1,.36,1)]
-          group-hover:-translate-y-full
+          group-hover:translate-y-0
         `}
       >
         {children}

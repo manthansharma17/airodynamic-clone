@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import React, { useRef, useMemo, useState, useCallback, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Html, useTexture } from "@react-three/drei";
@@ -33,13 +33,7 @@ function latLngToVector3(lat, lng, radius) {
   return new THREE.Vector3(x, y, z);
 }
 
-function Marker({
-  marker,
-  radius,
-  defaultSize,
-  onClick,
-  onHover
-}) {
+function Marker({ marker, radius, defaultSize, onClick, onHover }) {
   const [hovered, setHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const groupRef = useRef(null);
@@ -109,7 +103,7 @@ function Marker({
     <group ref={groupRef} visible={isVisible}>
       {/* Pin line from surface to image - properly oriented */}
       <mesh position={lineCenter} quaternion={lineQuaternion}>
-        <cylinderGeometry args={[0.003, 0.003, lineHeight , 2]} />
+        <cylinderGeometry args={[0.003, 0.003, lineHeight, 2]} />
         <meshBasicMaterial
           color={hovered ? "#ffffff" : "#94a3b8"}
           transparent
@@ -157,12 +151,7 @@ function Marker({
   );
 }
 
-function RotatingGlobe({
-  config,
-  markers,
-  onMarkerClick,
-  onMarkerHover
-}) {
+function RotatingGlobe({ config, markers, onMarkerClick, onMarkerHover }) {
   const groupRef = useRef(null);
 
   // Load Earth textures
@@ -200,12 +189,18 @@ function RotatingGlobe({
           bumpMap={bumpTexture}
           bumpScale={config.bumpScale * 0.05}
           roughness={0.7}
-          metalness={0.0} />
+          metalness={0.0}
+        />
       </mesh>
       {/* Wireframe overlay */}
       {config.showWireframe && (
         <mesh geometry={wireframeGeometry}>
-          <meshBasicMaterial color={config.wireframeColor} wireframe transparent opacity={0.08} />
+          <meshBasicMaterial
+            color={config.wireframeColor}
+            wireframe
+            transparent
+            opacity={0.08}
+          />
         </mesh>
       )}
       {/* Markers - now inside the rotating group */}
@@ -216,18 +211,14 @@ function RotatingGlobe({
           radius={config.radius}
           defaultSize={config.markerSize}
           onClick={onMarkerClick}
-          onHover={onMarkerHover} />
+          onHover={onMarkerHover}
+        />
       ))}
     </group>
   );
 }
 
-function Atmosphere({
-  radius,
-  color,
-  intensity,
-  blur
-}) {
+function Atmosphere({ radius, color, intensity, blur }) {
   // blur controls the fresnel exponent: lower = more diffuse, higher = sharper edge
   // We invert it so higher blur value = more diffuse (lower exponent)
   const fresnelPower = Math.max(0.5, 5 - blur);
@@ -273,17 +264,14 @@ function Atmosphere({
   );
 }
 
-function Scene({
-  markers,
-  config,
-  onMarkerClick,
-  onMarkerHover
-}) {
+function Scene({ markers, config, onMarkerClick, onMarkerHover }) {
   const { camera } = useThree();
 
   // Set initial camera position (pulled back to accommodate markers)
   React.useEffect(() => {
-    camera.position.set(0, 0, config.radius * 3.5);
+    const isMobile = window.innerWidth < 640;
+
+    camera.position.set(0, 0, config.radius * (isMobile ? 4.6 : 3.5));
     camera.lookAt(0, 0, 0);
   }, [camera, config.radius]);
 
@@ -294,24 +282,28 @@ function Scene({
       <directionalLight
         position={[config.radius * 5, config.radius * 2, config.radius * 5]}
         intensity={config.pointLightIntensity}
-        color="#ffffff" />
+        color="#ffffff"
+      />
       <directionalLight
         position={[-config.radius * 3, config.radius, -config.radius * 2]}
         intensity={config.pointLightIntensity * 0.3}
-        color="#88ccff" />
+        color="#88ccff"
+      />
       {/* Rotating Globe with Markers */}
       <RotatingGlobe
         config={config}
         markers={markers}
         onMarkerClick={onMarkerClick}
-        onMarkerHover={onMarkerHover} />
+        onMarkerHover={onMarkerHover}
+      />
       {/* Atmosphere (static) */}
       {config.showAtmosphere && (
         <Atmosphere
           radius={config.radius}
           color={config.atmosphereColor}
           intensity={config.atmosphereIntensity}
-          blur={config.atmosphereBlur} />
+          blur={config.atmosphereBlur}
+        />
       )}
       {/* Controls */}
       <OrbitControls
@@ -324,7 +316,8 @@ function Scene({
         autoRotate={config.autoRotateSpeed > 0}
         autoRotateSpeed={config.autoRotateSpeed}
         enableDamping
-        dampingFactor={0.1} />
+        dampingFactor={0.1}
+      />
     </>
   );
 }
@@ -378,12 +371,15 @@ export function Globe3D({
   config = {},
   className,
   onMarkerClick,
-  onMarkerHover
+  onMarkerHover,
 }) {
-  const mergedConfig = useMemo(() => ({ ...defaultConfig, ...config }), [config]);
+  const mergedConfig = useMemo(
+    () => ({ ...defaultConfig, ...config }),
+    [config],
+  );
 
   return (
-    <div className={cn("relative h-[500px] w-full", className)}>
+    <div className={cn("relative  h-full w-full", className)}>
       <Canvas
         gl={{
           antialias: true,
@@ -399,13 +395,15 @@ export function Globe3D({
         }}
         style={{
           background: mergedConfig.backgroundColor || "transparent",
-        }}>
+        }}
+      >
         <Suspense fallback={<LoadingFallback />}>
           <Scene
             markers={markers}
             config={mergedConfig}
             onMarkerClick={onMarkerClick}
-            onMarkerHover={onMarkerHover} />
+            onMarkerHover={onMarkerHover}
+          />
         </Suspense>
       </Canvas>
     </div>

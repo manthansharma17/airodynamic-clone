@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroSearch from "./HeroSearch";
 import BookFlightDrawer from "./BookFlightDrawer";
 import heroScroll from "../../../animations/heroScroll";
+import Checkbox from "../../ui/hamburger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,7 +104,7 @@ export default function Hero() {
         <button
           onClick={() => setDrawerOpen(true)}
           className="hero-book-trigger absolute bottom-8 left-1/2 z-50 -translate-x-1/2
-             flex h-14 w-[90%] max-w-[360px] items-center justify-center
+             flex h-14 w-[60%] max-w-[360px] items-center justify-center
              rounded-full bg-white text-[15px] font-semibold text-[#0B2D63]
              shadow-[0_20px_60px_rgba(0,0,0,.18)]
              lg:hidden"

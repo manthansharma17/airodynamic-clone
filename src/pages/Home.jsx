@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <>
-      <section>
+      
         <Hero />
         <StorySection />
         <Services />
@@ -28,7 +28,6 @@ export default function Home() {
         <InsightsSection />
         <InstagramSection />
 
-      </section>
     </>
   );
 }
