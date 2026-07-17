@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import heroAnimation from "./PlaneAnimation";
 import { ArrowRight } from "lucide-react";
-import Globe3DDemoSecond from "./3d-globe-demo-2";
+import Globe3DDemoSecond from "../model/3d-globe-demo-2";
 const Plane = () => {
   const planeRef = useRef(null);
 
@@ -57,7 +57,6 @@ const Plane = () => {
                 </div>
                 </div> */}
 
-
           <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
           <img
             src="/images/front.webp"
@@ -66,14 +65,8 @@ const Plane = () => {
           ></img>
         </div>
 
-       
-
         {/* HERO COPY */}
         {/* Uncomment later if needed */}
-        
-      
-  
-     
 
         {/* WINDOW */}
         <div className="window-container absolute left-0 top-0 h-screen w-full">

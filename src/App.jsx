@@ -3,12 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 
 import Home from "./pages/Home";
-import Solutions from "./pages/Solutions";
-import Model from "./pages/Model";
-import Insight from "./pages/Insight";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import Solutions from "./components/sections/Services/Services";
+import Model from "./components/sections/WindowAnimation/Plane";
+import Insight from "./components/sections/insight/InsightsSection";
+import About from "./components/sections/About/StorySection";
+import Contact from "./components/layout/Footer";
+import NotFound from "./components/sections/model/PlaneButton";
 
 export default function App() {
 

@@ -1,23 +1,31 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import AnimatedLink from "@/components/ui/AnimatedLink";
-import AnimatedButton from "@/components/ui/AnimatedButton";
-import AnimatedSwapText from "@/components/ui/AnimatedSwapText";
-import AnimatedSwapIcon from "@/components/ui/AnimatedSwapIcon";
-import AnimatedText from "@/components/ui/AnimatedText";
-import Checkbox from "@/components/ui/hamburger";
-
+import { lenis } from "../../animations/lenis";
+import AnimatedLink from "@/components/sections/model/ui/AnimatedLink";
+import AnimatedButton from "@/components/sections/model/ui/AnimatedButton";
+import AnimatedSwapText from "@/components/sections/model/ui/AnimatedSwapText";
+import AnimatedSwapIcon from "@/components/sections/model/ui/AnimatedSwapIcon";
+import AnimatedText from "@/components/sections/model/ui/AnimatedText";
+import Checkbox from "@/components/sections/model/ui/hamburger";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navItems = [
-    { name: "Solutions", path: "/solutions" },
-    { name: "Model", path: "/model" },
-    { name: "Insight", path: "/insight" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
-  ];
+const scrollToSection = (id) => {
+  lenis.scrollTo(`#${id}`);
+  setMenuOpen(false);
+};
+
+const navItems = [
+  { name: "Home", id: "hero" },
+  { name: "About", id: "about" },
+  { name: "Services", id: "services" },
+  { name: "Insights", id: "insights" },
+  { name: "Contact", id: "contact" },
+  {name: "Model", id: "model"},
+];
+
+
 
   return (
     <>
@@ -30,10 +38,15 @@ export default function Navbar() {
 
             <div className="flex-1">
               <nav>
-                <ul className="flex items-center gap-8 font-Unica text-[14px]">
+                <ul className="flex items-center gap-10">
                   {navItems.map((item) => (
-                    <li key={item.name}>
-                      <AnimatedLink to={item.path}>{item.name}</AnimatedLink>
+                    <li key={item.id}>
+                      <AnimatedLink
+                        onClick={() => scrollToSection(item.id)}
+                        className="text-sm font-medium text-white transition-colors"
+                      >
+                        {item.name}
+                      </AnimatedLink>
                     </li>
                   ))}
                 </ul>
@@ -217,17 +230,17 @@ export default function Navbar() {
                     transitionDelay: `${index * 70}ms`,
                   }}
                 >
-                  <NavLink
-                    to={item.path}
-                    onClick={() => setMenuOpen(false)}
-                    className="group inline-block overflow-hidden"
+                  <button
+                    type="button"
+                    onClick={() => scrollToSection(item.id)}
+                    className="group inline-block overflow-hidden text-left"
                   >
                     <AnimatedText className="group-hover:text-zinc-400 h-[42px]">
                       <span className="text-[36px] font-light leading-none tracking-[-1px]">
                         {item.name}
                       </span>
                     </AnimatedText>
-                  </NavLink>
+                  </button>
                 </li>
               ))}
             </ul>

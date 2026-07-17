@@ -1,37 +1,31 @@
-import { useEffect } from "react";
 import Hero from "../components/sections/home/Hero";
-import StorySection from "../components/sections/home/StorySection";
-import Services from "../components/sections/home/Services";
-import Window from "../components/sections/home/Plane";
-import initLenis from "../animations/lenis";
-import PlaneButton from "../components/sections/home/PlaneButton";
-import OverAeroSection from "../components/sections/home/OverAero";
-import InsightsSection from "../components/sections/home/InsightsSection";
-import InstagramSection from "../components/sections/home/InstagramSection";
-import Last from "../components/sections/home/last";
+import StorySection from "../components/sections/About/StorySection";
+import Services from "../components/sections/Services/Services";
+import Window from "../components/sections/WindowAnimation/Plane";
+import PlaneButton from "../components/sections/model/PlaneButton";
+import OverAeroSection from "../components/sections/InstaLast/OverAero";
+import InsightsSection from "../components/sections/insight/InsightsSection";
+import InstagramSection from "../components/sections/InstaLast/InstagramSection";
+import Last from "../components/sections/InstaLast/last";
 
 export default function Home() {
-  useEffect(() => {
-    const cleanup = initLenis();
-
-    return cleanup;
-  }, []);
-
   return (
     <>
-    
-        <>
-          <Hero />
-          <StorySection />
-          <Services />
-          <Window />
-          <PlaneButton />
-          <OverAeroSection />
-          <InsightsSection />
-          <InstagramSection />
-          <Last />
-
-        </>
+      <section id="hero"><Hero /></section>
+      <section id="about" ><StorySection /></section>
+      <section id="services"> <Services /></section>
+      <section id="insights"><Window /></section>
+      <section id="model"><PlaneButton /></section>
+      <section id="contact"><OverAeroSection />
+      <InsightsSection />
+      <InstagramSection />
+      <Last /></section>
+     
+      
+      
+      
+      
+      
       
     </>
   );

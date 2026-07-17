@@ -1,5 +1,5 @@
 "use client";
-import { Globe3D } from "@/components/ui/3d-globe";
+import { Globe3D } from "@/components/sections/model/ui/3d-globe";
 
 const sampleMarkers = [
   {
