@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroSearch from "./HeroSearch";
 import BookFlightDrawer from "./BookFlightDrawer";
 import heroScroll from "../../../animations/heroScroll";
+import {Plane} from "lucide-react";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -103,13 +104,43 @@ export default function Hero() {
         {/* Tablet + mobile: single Book Flight trigger opening the bottom drawer */}
         <button
           onClick={() => setDrawerOpen(true)}
-          className="hero-book-trigger absolute bottom-8 left-1/2 z-50 -translate-x-1/2
-             flex h-14 w-[60%] max-w-[360px] items-center justify-center
-             rounded-full bg-white text-[15px] font-semibold text-[#0B2D63]
-             shadow-[0_20px_60px_rgba(0,0,0,.18)]
-             lg:hidden"
+          className="
+    hero-book-trigger
+    group
+    absolute
+    bottom-8
+    left-1/2
+    z-50
+    flex
+    h-14
+    w-[40%]
+    max-w-[360px]
+    -translate-x-1/2
+    items-center
+    justify-center
+    gap-3
+    rounded-full
+    bg-white
+    text-[15px]
+    font-semibold
+    text-[#0B2D63]
+    shadow-[0_20px_60px_rgba(0,0,0,.18)]
+    lg:hidden
+  "
         >
-          Book Flight
+          <div className="relative flex h-5 w-5 items-center justify-center overflow-hidden">
+            <Plane
+              size={20}
+              className="absolute transition-all duration-300 group-hover:translate-x-7 group-hover:-translate-y-7 group-hover:rotate-12"
+            />
+
+            <Plane
+              size={20}
+              className="absolute -translate-x-7 translate-y-7 -rotate-12 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0"
+            />
+          </div>
+
+          <span>Book Flight</span>
         </button>
 
         <BookFlightDrawer
@@ -143,8 +174,6 @@ export default function Hero() {
           className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-20 bg-gradient-to-b from-transparent to-white sm:h-20 md:h-24 lg:h-28"
         />
       </div>
-
-      
     </>
   );
 }

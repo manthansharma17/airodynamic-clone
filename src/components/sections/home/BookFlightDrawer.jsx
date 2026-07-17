@@ -45,7 +45,7 @@ export default function BookFlightDrawer({ isOpen, onClose }) {
         {/* Header */}
 
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-[#0B2D63]">Book Flight</h2>
+          <h2 className="text-xl font-semibold text-[#030d1e]">Book Flight</h2>
 
           <button
             onClick={onClose}

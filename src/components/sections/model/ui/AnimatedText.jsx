@@ -29,7 +29,6 @@ export default function AnimatedText({
           row-start-1
           translate-y-full
           text-current
-          text-nachtblauw
           transition-transform
           ${duration}
           ease-[cubic-bezier(.22,1,.36,1)]
