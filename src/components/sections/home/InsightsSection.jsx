@@ -8,7 +8,7 @@ const InsightsSection = () => {
       <div className="mx-auto max-w-[1600px] px-8">
         {/* Header */}
         <div className="mb-16 py-20 flex items-center justify-between">
-          <h2 className="font-heading text-[56px] leading-none tracking-[-3px] text-[#0B2D63]">
+          <h2 className="font-heading text-[56px] sm:text-[40px] leading-none tracking-[-3px] text-[#0B2D63] md:text-[40px]">
             Insights & events
           </h2>
 

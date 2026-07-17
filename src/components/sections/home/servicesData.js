@@ -23,6 +23,24 @@ const services = [
       "From business travel to group and incentive flights: tailor-made air transport with complete flexibility.",
     image: charter,
   },
+  {
+    id: 4,
+    title: "Cargo flights",
+    description: "Secure worldwide cargo operations with flexible scheduling.",
+    image: privateJet,
+  },
+  {
+    id: 5,
+    title: "Medical flights",
+    description: "Fast medical evacuation and critical patient transport.",
+    image: management,
+  },
+  {
+    id: 6,
+    title: "VIP Concierge",
+    description: "Luxury ground handling and premium travel assistance.",
+    image: charter,
+  },
 ];
 
 export default services;

@@ -4,7 +4,7 @@ import Globe3DDemoSecond from "./3d-globe-demo-2";
 
 const PlaneButton = () => {
   return (
-    <section className="relative h-full overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* Background */}
       <img
         src="/images/sky-bg.png"
@@ -22,7 +22,7 @@ const PlaneButton = () => {
 
       <div className="relative z-10">
         {/* Top */}
-        <div className="mx-auto flex w-full flex-col items-center justify-between gap-8 px-6 pt-12 pb-12 sm:px-8 md:flex-row sm: flex-row md:px-12 lg:px-[8%] xl:px-[15%] xl:pb-[10%]">
+        <div className="mx-auto flex w-full flex-row items-center justify-between gap-8 px-6 pt-12 pb-30 sm:px-8 sm:pb-28  md:px-12 lg:px-[8%] xl:px-[15%] xl:pb-[10%]">
           <h2 className="font-heading text-center text-[16px]  leading-none tracking-[-1px] text-[#0B2D63] sm:text-[30px] md:text-[30px] lg:text-[56px] lg:tracking-[-3px] md:text-left">
             Our aircrafts
           </h2>
@@ -45,11 +45,11 @@ const PlaneButton = () => {
         </div>
 
         {/* Center */}
-        <div className="flex flex-col items-center pt-[20%] lg:pt-[22%] md:pt-2.5 text-center">
-          <h2 className="lg:pb-4 md:pb-2 font-heading text-[25px] text-indigo-950 sm:text-[42px] md:text-[42px] lg:text-[50px] ">
-            From A to Anywhere
+        <div className="flex flex-col top-[30%] items-center sm:pt-[5%] sm:pb-16 pb-18 lg:pt-[18%] md:pt-2.5 text-center">
+          <h2 className="lg:pb-4 md:pb-2 mt-3 font-heading text-[18px]  text-indigo-950 sm:text-[42px] md:text-[42px] lg:text-[50px] ">
+            From <span>'A'</span> to Anywhere
           </h2>
-          <p className="max-w-2xl text-[8px] leading-relaxed text-sub text-nachtblauw sm:text-base md:text-[15px] lg:text-[18px]">
+          <p className="max-w-2xl text-[6px] leading-relaxed text-sub text-nachtblauw sm:text-base md:text-[15px] lg:text-[18px]">
             From Europe to Asia, from North to South America.
             <br />
             Always in motion, anywhere in the world.
@@ -68,7 +68,7 @@ const PlaneButton = () => {
     sm:mt-12
     sm:h-[450px]
     md:h-[520px]
-    lg-h-[650px]
+    lg:h-[650px]
     lg:bottom-[-2%]
     xl:bottom-[-5%]
     xl:h-[650px]
@@ -81,7 +81,7 @@ const PlaneButton = () => {
       <img
         src="/images/front.webp"
         alt=""
-        className="pointer-events-none absolute bottom-[-1px] left-0 z-10 w-full object-cover sm:block"
+        className="pointer-events-none absolute bottom-[-4px] left-0 z-10 w-full object-cover sm:block"
       />
     </section>
   );

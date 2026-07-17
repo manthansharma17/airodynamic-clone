@@ -89,18 +89,17 @@ export default function Globe3DDemoSecond() {
         className="
 absolute
 left-1/2
-bottom-[-80%]
+bottom-[-120%]
 -translate-x-1/2
 
-w-[220%]
-h-[220%]
-
-md:bottom-[-60%]
-md:w-[220%]
-md:h-[220%]
-
-lg:bottom-[-150%]
-lg:w-[270%]
+w-[340%]
+h-[320%]
+md:bottom-[-70%]
+md:w-[190%]
+md:h-[190%]
+sm:bottom-[-170%]
+lg:bottom-[-130%]
+lg:w-[290%]
 lg:h-[270%]
 "
         markers={sampleMarkers}

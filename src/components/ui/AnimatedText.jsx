@@ -3,17 +3,17 @@ import React from "react";
 export default function AnimatedText({
   children,
   className = "",
-  duration = "duration-800",
+  duration = "duration-700",
 }) {
   return (
     <span
-      className={`relative inline-grid overflow-hidden ${className}`}
+      className={`relative inline-grid overflow-hidden text-current ${className}`}
     >
-      {/* First text */}
       <span
         className={`
           col-start-1
           row-start-1
+          text-current
           transition-transform
           ${duration}
           ease-[cubic-bezier(.22,1,.36,1)]
@@ -23,12 +23,12 @@ export default function AnimatedText({
         {children}
       </span>
 
-      {/* Second text */}
       <span
         className={`
           col-start-1
           row-start-1
           translate-y-full
+          text-current
           transition-transform
           ${duration}
           ease-[cubic-bezier(.22,1,.36,1)]

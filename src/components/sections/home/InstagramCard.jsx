@@ -58,7 +58,7 @@ const InstagramCard = ({ post }) => {
       className="group block"
     >
       <div
-        className="relative aspect-[4/5] overflow-hidden rounded-[22px] cursor-pointer"
+        className="relative aspect-[4/5] overflow-hidden rounded-[22px] lg:py-3 cursor-pointer"
         onMouseEnter={handleMouseEnter}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}

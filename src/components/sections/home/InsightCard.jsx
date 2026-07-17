@@ -75,7 +75,7 @@ const InsightCard = ({ item }) => {
 
       {/* Content */}
       <div className="pt-6">
-        <h3 className="text-[24px] font-sub leading-[1.2] tracking-[-1px] text-[#0B2D63] transition-colors duration-300 group-hover:text-[#164c8d]">
+        <h3 className="text-[24px] font-basic  leading-[1.2] tracking-[-1px] text-[#0B2D63] transition-colors duration-300 group-hover:text-[#164c8d]">
           {item.title}
         </h3>
 

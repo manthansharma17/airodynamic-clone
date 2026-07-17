@@ -17,7 +17,7 @@ const Plane = () => {
     <>
       <div
         ref={planeRef}
-        className="hero relative h-screen overflow-bottom-hidden text-[#e3e3db] [perspective:125px]"
+        className="hero relative h-screen overflow-hidden text-[#e3e3db] [perspective:125px]"
       >
         {/* SKY */}
         <div className="sky-container overflow-hidden absolute left-0 top-0 h-screen lg:h-[130svh] sm:h-[150svh] w-full will-change-transform">

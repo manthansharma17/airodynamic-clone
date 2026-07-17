@@ -53,24 +53,25 @@ const StorySection = () => {
       },
     });
 
-    tl.from(".content-subtitle", {
-      y: 120,
+    tl.to(".content-subtitle", {
+      y: -120,
       opacity: 0,
       duration: 0.7,
     });
 
     // Animate first panel content
 
-    tl.from(".left-content", {
-      y: 120,
+    tl.to(".left-content", {
+      y: -120,
       opacity: 0,
       duration: 0.7,
     });
 
-    tl.from(
+    tl.to(
       ".right-content",
       {
-        y: 120,
+        y: -120,
+        delay:0.5,
         opacity: 0,
         duration: 0.7,
       },
@@ -150,16 +151,57 @@ const StorySection = () => {
       ========================= */}
 
       <div className="panel about absolute inset-0 z-[1] flex h-screen w-full items-center justify-center overflow-hidden bg-white">
-        <div className="mx-auto w-full max-w-7xl px-25 py-1">
-          <span className="content-subtitle inline-block text-[15px] p-1 font-semibold text-[#0B73FF]">
+        <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-8 sm:py-10 md:py-12">
+          <span className="content-subtitle inline-block p-1 text-xs sm:text-sm md:text-[15px] font-semibold text-[#0B73FF]">
             About Aerodynamics
           </span>
 
-          <div className="about-grid mt-[35px] grid grid-cols-8 gap-x-8 gap-y-20">
+          <div
+            className="
+  about-grid
+  mt-6
+  sm:mt-8
+  lg:mt-10
+
+  grid
+  grid-cols-1
+  md:grid-cols-8
+
+  gap-y-8
+  md:gap-y-16
+  lg:gap-y-20
+
+  gap-x-8
+"
+          >
             {/* Left */}
 
-            <div className="left-content col-span-5">
-              <h2 className="content-heading font-heading text-[60px] font-normal leading-[0.95] tracking-[-2px] text-[#0B2D63]">
+            <div className="left-content md:col-span-5">
+              <h2
+                className="
+content-heading
+font-heading
+font-normal
+text-[#0B2D63]
+
+text-[36px]
+leading-[1]
+
+sm:text-[44px]
+
+md:text-[52px]
+
+lg:text-[60px]
+
+xl:text-[66px]
+
+2xl:text-[72px]
+
+tracking-[-1px]
+sm:tracking-[-1.5px]
+lg:tracking-[-2px]
+"
+              >
                 Aerodynamics offers
                 <br />
                 <span className=" font-sub italic">luxury</span> and service
@@ -170,28 +212,88 @@ const StorySection = () => {
 
             {/* Right */}
 
-            <div className="right-content col-span-5 col-start-5 self-end">
-              <p className="content-text max-w-[430px] text-[20px] leading-[1.4] text-[#64789d]">
+            <div
+              className="
+right-content
+
+md:col-span-4
+md:col-start-5
+
+self-start
+md:self-end
+
+mt-4
+md:mt-0
+"
+            >
+              {" "}
+              <p
+                className="
+content-text
+
+max-w-full
+sm:max-w-md
+lg:max-w-[430px]
+
+text-[15px]
+sm:text-[16px]
+md:text-[17px]
+lg:text-[18px]
+xl:text-[20px]
+
+leading-[1.8]
+lg:leading-[1.5]
+
+text-[#64789d]
+"
+              >
+                {" "}
                 Private jets deserve service of the highest calibre. That is the
                 conviction of Aerodynamics, and that dedication is felt in every
                 interaction. Clients notice the difference, and that is
                 precisely why they choose Aerodynamics time and again.
               </p>
-              
-              <button className="group mt-10 inline-flex cursor-pointer items-center gap-3 px-3 py-4 transition-colors duration-300">
-                <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#0B2D63]">
+              <button
+                className="
+group
+
+mt-6
+sm:mt-8
+lg:mt-10
+
+inline-flex
+
+items-center
+
+gap-3
+
+px-2
+sm:px-3
+
+py-3
+sm:py-4
+
+cursor-pointer
+transition-colors
+duration-300
+"
+              >
+                {" "}
+                <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center overflow-hidden rounded-full bg-[#0B2D63]">
+                  {" "}
                   <Plane
                     size={20}
                     className="absolute transition-all duration-300 group-hover:translate-x-7 group-hover:-translate-y-7 group-hover:rotate-12"
                   />
-
                   <Plane
                     size={20}
                     className="absolute -translate-x-7 translate-y-7 -rotate-12 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:rotate-0"
                   />
                 </div>
-
-                <span className=" text-nachtblauw-dark pr-3">Book a Flight</span>
+                <span className="text-sm sm:text-base text-nachtblauw-dark pr-2 sm:pr-3">
+                  {" "}
+                  Book a Flight
+                </span>
               </button>
             </div>
           </div>
@@ -230,18 +332,94 @@ const StorySection = () => {
               {galleryData.map((item) => (
                 <div
                   key={item.id}
-                  className="slide absolute inset-0 flex items-center pt-[25%] opacity-0"
+                  className="
+slide
+
+absolute
+inset-0
+
+flex
+items-end
+sm:items-center
+
+pb-20
+sm:pb-0
+
+pt-[45%]
+sm:pt-[35%]
+md:pt-[28%]
+lg:pt-[25%]
+
+opacity-0
+"
                 >
-                  <div className="container mx-[10px] w-full max-w-7xl px-10">
-                    <span className="slide-number text-[18px] font-medium text-blue-300">
+                  <div
+                    className="
+container
+
+mx-auto
+
+w-full
+
+max-w-7xl
+
+px-6
+sm:px-8
+md:px-10
+lg:px-14
+xl:px-20
+"
+                  >
+                    {" "}
+                    <span className="slide-number text-sm sm:text-base lg:text-lg font-medium text-blue-300">
                       {item.number}
                     </span>
+                    <h2
+                      className="
+slide-title
 
-                    <h2 className="slide-title mt-4 max-w-[800px] text-[34px] font-bold font-heading leading-none text-white">
+mt-4
+
+max-w-full
+lg:max-w-[800px]
+
+font-heading
+
+text-[28px]
+sm:text-[36px]
+md:text-[48px]
+lg:text-[60px]
+xl:text-[72px]
+
+leading-none
+
+text-white
+"
+                    >
                       {item.title}
                     </h2>
+                    <p
+                      className="
+slide-description
 
-                    <p className="slide-description mt-8 max-w-[520px] font-sub text-[15px] leading-[1.8] text-white/80">
+mt-5
+sm:mt-8
+
+max-w-full
+sm:max-w-md
+lg:max-w-[520px]
+
+font-sub
+
+text-sm
+sm:text-base
+lg:text-lg
+
+leading-[1.8]
+
+text-white/80
+"
+                    >
                       {item.description}
                     </p>
                   </div>

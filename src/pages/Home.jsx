@@ -8,6 +8,7 @@ import PlaneButton from "../components/sections/home/PlaneButton";
 import OverAeroSection from "../components/sections/home/OverAero";
 import InsightsSection from "../components/sections/home/InsightsSection";
 import InstagramSection from "../components/sections/home/InstagramSection";
+import Last from "../components/sections/home/last";
 
 export default function Home() {
   useEffect(() => {
@@ -18,16 +19,20 @@ export default function Home() {
 
   return (
     <>
-      
-        <Hero />
-        <StorySection />
-        <Services />
-        <Window />
-        <PlaneButton />
-        <OverAeroSection />
-        <InsightsSection />
-        <InstagramSection />
+    
+        <>
+          <Hero />
+          <StorySection />
+          <Services />
+          <Window />
+          <PlaneButton />
+          <OverAeroSection />
+          <InsightsSection />
+          <InstagramSection />
+          <Last />
 
+        </>
+      
     </>
   );
 }

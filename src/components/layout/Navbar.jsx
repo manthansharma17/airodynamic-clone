@@ -166,7 +166,7 @@ export default function Navbar() {
             absolute
             inset-0
             bg-black/35
-            
+            backdrop-blur-sm
             transition-opacity
             duration-500
             ${menuOpen ? "opacity-100" : "opacity-0"}

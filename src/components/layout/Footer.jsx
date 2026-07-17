@@ -1,144 +1,163 @@
-import React from 'react'
+import { NavLink } from "react-router-dom";
 
-const Footer = () => {
+const pageLinks = [
+  { name: "Home", path: "/" },
+  { name: "Solutions", path: "/solutions" },
+  { name: "Model", path: "/model" },
+  { name: "Insights", path: "/insight" },
+  { name: "About us", path: "/about" },
+  { name: "Contact", path: "/contact" },
+];
+
+const serviceLinks = [
+  { name: "Private flights", path: "/solutions" },
+  { name: "Charters", path: "/solutions" },
+  { name: "Specials", path: "/solutions" },
+];
+
+const legalLinks = [
+  { name: "Privacy Statement", path: "/privacy" },
+  { name: "Terms and conditions", path: "/terms" },
+];
+
+function FooterLink({ to, children }) {
   return (
-    <div>
-      
-    </div>
-  )
+    <NavLink
+      to={to}
+      className="text-sm text-nachtblauw transition-colors duration-200 hover:text-nachtblauw/60"
+    >
+      {children}
+    </NavLink>
+  );
 }
 
-export default Footer
+export default function Footer() {
+  return (
+    <footer className="bg-white text-nachtblauw">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+        {/* Top */}
+        <div className="flex flex-col gap-14 lg:flex-row lg:justify-between lg:gap-10">
+          {/* Brand */}
+          <div className="max-w-sm pb-3">
+            <NavLink to="/" className="flex-col items-center gap-4">
+              <img 
+                src="/images/logo/logo.svg"
+                alt="Aerodynamics"
+                className="h-8 py-2 w-auto"
+              />
+              <span className="font-heading py- 1 text-2xl text-nachtblauw">
+                Aerodynamics-clone
+              </span>
+            </NavLink>
 
+            <p className="mt-6 text-sm leading-7 text-nachtblauw/60">
+              Aerodynamics offers exclusive, tailor-made flights with a focus on
+              comfort, flexibility and outstanding service.
+            </p>
+          </div>
 
+          {/* Link columns */}
+          <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:gap-x-16">
+            <div>
+              <h3 className="mb-6 text-sm text-nachtblauw/40">Pages</h3>
+              <ul className="space-y-4">
+                {pageLinks.map((item) => (
+                  <li key={item.name}>
+                    <FooterLink to={item.path}>{item.name}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
+            <div>
+              <h3 className="mb-6 text-sm text-nachtblauw/40">Services</h3>
+              <ul className="space-y-4">
+                {serviceLinks.map((item) => (
+                  <li key={item.name}>
+                    <FooterLink to={item.path}>{item.name}</FooterLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
+            <div className="col-span-2 sm:col-span-1">
+              <h3 className="mb-6 text-sm text-nachtblauw/40">Contact</h3>
 
-// import { NavLink } from "react-router-dom";
-// import AnimatedLink from "../ui/AnimatedLink";
-// import AnimatedButton from "../ui/AnimatedButton";
-// import AnimatedSwapText from "../ui/AnimatedSwapText";
+              <address className="not-italic text-sm leading-7 text-nachtblauw">
+                INDR-CITY
+                <br />
+               452012
 
-// export default function Footer() {
-//   return (
-//     <footer className="bg-zinc-200 text-nachtblauw">
-//       <div className="mx-auto max-w-7xl px-6 py-20">
-//         {/* Top */}
-//         <div className="flex flex-col justify-between gap-14 lg:flex-row">
-//           {/* Left */}
+              </address>
 
-//           <div className="max-w-xl">
-//             <p className="mb-5 text-sm uppercase tracking-[0.2em] text-nachtblauw">
-//               Aerodynamics
-//             </p>
+              <div className="mt-4 space-y-1">
+                <a
+                  href="tel:+31206041667"
+                  className="block text-sm text-nachtblauw underline decoration-nachtblauw/20 underline-offset-4 hover:decoration-nachtblauw"
+                >
+                  +91 9179*****06
+                </a>
+                <a
+                  href="mailto:info@aerodynamics.nl"
+                  className="block text-sm text-nachtblauw underline decoration-nachtblauw/20 underline-offset-4 hover:decoration-nachtblauw"
+                >
+                  manthan#$%*&&0@gmail.com
+                </a>
+              </div>
 
-//             <h2 className="font-heading text-5xl leading-none md:text-6xl">
-//               Let's fly together.
-//             </h2>
+              <div className="mt-6 flex gap-3">
+                <a
+                  href="#"
+                  aria-label="LinkedIn"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-transparent text-white transition-opacity hover:opacity-80"
+                >
+                 <img src="/icons/linkdin.svg" alt="" />
+                </a>
+                <a
+                  href="#"
+                  aria-label="Instagram"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-transparent text-white transition-opacity hover:opacity-80"
+                >
+                 <img src="/icons/instagram.svg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-//             <p className="mt-8 max-w-md text-nachtblauw leading-8">
-//               Experience private aviation with unmatched comfort, flexibility
-//               and luxury.
-//             </p>
+        {/* Bottom */}
+        <div className="mt-16 flex flex-col items-center gap-4 border-t border-nachtblauw/10 pt-8 text-sm text-nachtblauw/50 sm:flex-row sm:justify-between">
+          <p>© 2026 Aerodynamics-clone</p>
 
-//             <AnimatedButton
-//               className="
-//               mt-12
-//               rounded-full
-//               border
-//               border-white/20
-//               px-8
-//               hover:bg-nachtblauw-dark
-//               hover:text-white
-//             "
-//             >
-//               <AnimatedSwapText first="Flight Estimate" second="Book Now →" />
-//             </AnimatedButton>
-//           </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {legalLinks.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className="hover:text-nachtblauw"
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </div>
 
-//           {/* Right */}
-
-//           <div className="grid grid-cols-2 gap-16 md:grid-cols-3">
-//             <div>
-//               <h3 className="mb-6 text-violet-950">Navigation</h3>
-
-//               <div className="space-y-4 text-nachtblauw">
-//                 <AnimatedLink underline={false} to="/">
-//                   Home
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/solutions">
-//                   Solutions
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/model">
-//                   Model
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/insight">
-//                   Insight
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/about">
-//                   About
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/contact">
-//                   Contact
-//                 </AnimatedLink>
-//               </div>
-//             </div>
-
-//             <div>
-//               <h3 className="mb-6 text-violet-700">Company</h3>
-
-//               <div className="space-y-4">
-//                 <AnimatedLink underline={false} to="/privacy">
-//                   Privacy
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/cookies">
-//                   Cookies
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/terms">
-//                   Terms
-//                 </AnimatedLink>
-//               </div>
-//             </div>
-
-//             <div>
-//               <h3 className="mb-6 text-blue-300">Social</h3>
-
-//               <div className="space-y-4">
-//                 <AnimatedLink underline={false} to="/">
-//                   Instagram
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/">
-//                   LinkedIn
-//                 </AnimatedLink>
-
-//                 <AnimatedLink underline={false} to="/">
-//                   YouTube
-//                 </AnimatedLink>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Bottom */}
-
-//         <div className="mt-24 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 md:flex-row">
-//           <p className="text-sm text-black/50">
-//             © 2026 Aerodynamics. All rights reserved.
-//           </p>
-
-//           <NavLink to="/">
-//             <img src="/images/logo/logo.svg" alt="Logo" className="h-8" />
-//           </NavLink>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// }
+          <p>
+            Website by{" "}
+            <a
+              href="https://manthansharma.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-nachtblauw hover:underline"
+            >
+              Manthan Sharma
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
