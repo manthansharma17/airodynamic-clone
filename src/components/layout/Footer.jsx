@@ -45,7 +45,7 @@ export default function Footer() {
                 alt="Aerodynamics"
                 className="h-8 py-2 w-auto"
               />
-              <span className="font-heading py- 1 text-2xl text-nachtblauw">
+              <span className="font-heading text-2xl text-nachtblauw">
                 Aerodynamics-clone
               </span>
             </NavLink>
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:gap-x-16">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-[auto_auto_auto] lg:gap-x-16">
             <div>
               <h3 className="mb-6 text-sm text-nachtblauw/40">Pages</h3>
               <ul className="space-y-4">
@@ -92,16 +92,16 @@ export default function Footer() {
 
               <div className="mt-4 space-y-1">
                 <a
-                  href="tel:+31206041667"
+                  href="tel:+919179358406"
                   className="block text-sm text-nachtblauw underline decoration-nachtblauw/20 underline-offset-4 hover:decoration-nachtblauw"
                 >
-                  +91 9179*****06
+                  +91 91793 58406
                 </a>
                 <a
-                  href="mailto:info@aerodynamics.nl"
-                  className="block text-sm text-nachtblauw underline decoration-nachtblauw/20 underline-offset-4 hover:decoration-nachtblauw"
+                  href="mailto:manthannaruto10@gmail.com"
+                  className="block wrap-anywhere text-sm text-nachtblauw underline decoration-nachtblauw/20 underline-offset-4 hover:decoration-nachtblauw"
                 >
-                  manthan#$%*&&0@gmail.com
+                  manthannaruto10@gmail.com
                 </a>
               </div>
 

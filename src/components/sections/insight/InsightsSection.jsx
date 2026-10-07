@@ -7,8 +7,8 @@ const InsightsSection = () => {
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-[1600px] px-8">
         {/* Header */}
-        <div className="mb-16 py-20 flex items-center justify-between">
-          <h2 className="font-heading text-[56px] sm:text-[40px] leading-none tracking-[-3px] text-[#0B2D63] md:text-[40px]">
+        <div className="py-20 flex items-center justify-between gap-6">
+          <h2 className="font-heading text-[40px] leading-none tracking-[-3px] text-[#0B2D63]">
             Insights & events
           </h2>
 

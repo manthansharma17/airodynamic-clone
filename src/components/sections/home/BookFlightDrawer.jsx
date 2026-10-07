@@ -49,7 +49,8 @@ export default function BookFlightDrawer({ isOpen, onClose }) {
 
           <button
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200"
+            aria-label="Close"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-[#0B2D63] hover:bg-slate-200"
           >
             <X size={18} />
           </button>

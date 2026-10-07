@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import heroAnimation from "./PlaneAnimation";
-import { ArrowRight } from "lucide-react";
-import Globe3DDemoSecond from "../model/3d-globe-demo-2";
+
 const Plane = () => {
   const planeRef = useRef(null);
 

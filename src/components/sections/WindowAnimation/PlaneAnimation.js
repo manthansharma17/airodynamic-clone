@@ -17,9 +17,12 @@ export default function planeAnimation(planeRef) {
     const windowHeader = plane.querySelector(".window-header");
     const skyText = plane.querySelector(".sky-text");
 
-    const skyContainerHeight = skyContainer.offsetHeight;
-    const viewportHeight = window.innerHeight;
-    const skyMoveDistance = viewportHeight - skyContainerHeight;
+    // Recomputed on every refresh so resizes/orientation changes stay correct.
+    let skyMoveDistance = 0;
+    const measureSky = () => {
+      skyMoveDistance = window.innerHeight - skyContainer.offsetHeight;
+    };
+    measureSky();
 
     // ----------------------------------------------------
     // INITIAL STATE
@@ -38,21 +41,18 @@ export default function planeAnimation(planeRef) {
     ScrollTrigger.create({
       trigger: plane,
       start: "top top",
-      end: `+=${window.innerHeight * 2}`,
+      end: () => `+=${window.innerHeight * 2}`,
       pin: true,
       pinSpacing: true,
       scrub: 1,
+      invalidateOnRefresh: true,
+      onRefresh: measureSky,
 
       onUpdate: (self) => {
         const progress = self.progress;
 
-        let windowScale;
-
-        if (progress <= 0.5) {
-          windowScale = 1 + (progress / 0.4) * 3;
-        } else {
-          windowScale = 6;
-        }
+        // Grows continuously and caps at 6 (previously jumped 4.75 -> 6 at 0.5).
+        const windowScale = Math.min(1 + (progress / 0.4) * 3, 6);
 
         // Window Zoom
         gsap.set(windowContainer, {

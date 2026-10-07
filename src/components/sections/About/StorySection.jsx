@@ -10,7 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const StorySection = () => {
   useGSAP(() => {
-    const panels = gsap.utils.toArray(".panel");
     const images = gsap.utils.toArray(".gallery-image");
     const slides = gsap.utils.toArray(".slide");
 

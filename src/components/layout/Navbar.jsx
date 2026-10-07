@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { lenis } from "../../animations/lenis";
 import AnimatedLink from "@/components/sections/model/ui/AnimatedLink";
 import AnimatedButton from "@/components/sections/model/ui/AnimatedButton";
@@ -10,19 +10,29 @@ import Checkbox from "@/components/sections/model/ui/hamburger";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
 const scrollToSection = (id) => {
-  lenis.scrollTo(`#${id}`);
   setMenuOpen(false);
+
+  // Sections only exist on the home page; elsewhere, go home and let
+  // Home scroll to the hash once it has rendered.
+  if (pathname !== "/") {
+    navigate(`/#${id}`);
+    return;
+  }
+
+  lenis.scrollTo(`#${id}`);
 };
 
 const navItems = [
   { name: "Home", id: "hero" },
   { name: "About", id: "about" },
   { name: "Services", id: "services" },
+  { name: "Model", id: "model" },
   { name: "Insights", id: "insights" },
   { name: "Contact", id: "contact" },
-  {name: "Model", id: "model"},
 ];
 
 

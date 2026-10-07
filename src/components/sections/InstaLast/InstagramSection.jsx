@@ -7,7 +7,7 @@ const InstagramSection = () => {
     <section className="bg-white py-24 lg:py-24">
       <div className="mx-auto max-w-[1600px] px-8">
         {/* Heading */}
-        <div className="mb-16 py-20 text-center">
+        <div className="py-20 text-center">
           <h2 className="font-heading text-[40px] leading-none tracking-[-3px] text-[#0B2D63]">
             Follow us on <span className="italic">Instagram</span>
           </h2>

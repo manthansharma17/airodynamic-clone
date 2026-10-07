@@ -53,12 +53,11 @@ const ServiceCard = ({ service }) => {
         rounded-2xl
         cursor-pointer
 
+        w-full
         h-[420px]
-        w-[300px]
         sm:h-[380px]
         md:h-[430px]
         lg:h-[550px]
-        lg:w-[500px]
       "
     >
       {/* Image */}

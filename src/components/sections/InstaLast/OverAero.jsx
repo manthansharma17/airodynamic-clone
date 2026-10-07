@@ -37,13 +37,13 @@ export default function OverAeroSection() {
             <br className="md:hidden" /> since 1986
           </h2>
 
-          <p className="mt-10 max-w-lg pb-5 sm:text-[24px] sm:mb-6 font-basic  text-lg leading-9 text-[#5F6C84]">
+          <p className="max-w-lg pb-5 sm:text-[24px] sm:mb-6 font-basic  text-lg leading-9 text-[#5F6C84]">
             Since 1986, Aerodynamics has combined exclusivity and perfection
             into every flight. Every journey is tailor-made for those who accept
             nothing but the very best.
           </p>
 
-          <button className="group mt-14 flex items-center gap-5">
+          <button className="group mt-4 flex items-center gap-5">
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0B2D63] transition-transform duration-300 group-hover:rotate-45">
               <ArrowUpRight size={20} className="text-white" strokeWidth={2} />
             </span>

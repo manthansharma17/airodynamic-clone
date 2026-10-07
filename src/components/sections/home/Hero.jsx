@@ -87,7 +87,7 @@ export default function Hero() {
         {/* CONTENT */}
         <div className="absolute inset-0 z-40 pointer-events-none">
           {/* Center Hero Text */}
-          <div className=" hero-title absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-1/2 px-4 text-center">
+          <div className=" hero-title absolute left-1/2 top-[40%] w-full -translate-x-1/2 -translate-y-1/2 px-4 text-center">
             <h1 className="text-white text-[42px] leading-none font-heading tracking-[-1px] sm:text-[56px] md:text-[68px] md:tracking-[-2px] lg:text-[85px] lg:tracking-[-3px]">
               Smooth journeys
             </h1>

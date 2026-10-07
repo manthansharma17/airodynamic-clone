@@ -42,6 +42,7 @@
 @theme {
   --font-heading: "QuariaDisplay";
   --font-sub: "Unica77",Arial, sans-serif;
+  --font-basic: "Basic", sans-serif;
  --color-light: #e3e3db;
   --color-dark: #0f0f0f;
   --color-nachtblauw: #05275b;
@@ -57,11 +58,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 20 30;
 }
 
 html {

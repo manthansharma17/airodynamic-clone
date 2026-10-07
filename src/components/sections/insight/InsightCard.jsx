@@ -79,7 +79,7 @@ const InsightCard = ({ item }) => {
           {item.title}
         </h3>
 
-        <p className="mt-5 text-lg text-[#5E6B84]">{item.category}</p>
+        <p className="mt-2 text-lg text-[#5E6B84]">{item.category}</p>
       </div>
     </article>
   );

@@ -17,17 +17,25 @@ const Services = () => {
       // Only horizontal scroll on desktop
       if (window.innerWidth < 1024) return;
 
-      if (
-        Math.abs(e.deltaY) > Math.abs(e.deltaX) &&
-        container.scrollWidth > container.clientWidth
-      ) {
-        e.preventDefault();
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
 
-        container.scrollBy({
-          left: e.deltaY,
-          behavior: "smooth",
-        });
-      }
+      // Once the carousel hits either end, let the page scroll normally.
+      const atStart = container.scrollLeft <= 0;
+      const atEnd =
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth - 1;
+
+      if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return;
+
+      e.preventDefault();
+      // Lenis listens for wheel on window and ignores preventDefault, so
+      // stop the event here or the page scrolls along with the carousel.
+      e.stopPropagation();
+
+      container.scrollBy({
+        left: e.deltaY,
+        behavior: "smooth",
+      });
     };
 
     container.addEventListener("wheel", handleWheel, {
@@ -44,7 +52,7 @@ const Services = () => {
       <div className="mx-auto py-18 max-w-[1800px] pl-3 sm:pl-8 md:pl-5 lg:pl-5 xl:px-6 2xl:px-6">
         {/* Header */}
 
-        <div className="mb-10 flex py-8 flex-row item-center justify-between gap-6 px-5 lg:pb-16 sm:px-8 lg:mb-16  lg:items-center lg:justify-between lg:px-10">
+        <div className="flex py-8 flex-row items-center justify-between gap-6 px-5 lg:pb-16 sm:px-8 lg:items-center lg:justify-between lg:px-10">
           <h2 className="text-4xl font-heading leading-none tracking-tight text-nachtblauw sm:text-5xl lg:text-[56px]">
             Our services
           </h2>
@@ -76,6 +84,7 @@ const Services = () => {
     items-center
     snap-x
     snap-mandatory
+    gap-3
     sm:gap-6
     lg:gap-8
     overflow-x-auto

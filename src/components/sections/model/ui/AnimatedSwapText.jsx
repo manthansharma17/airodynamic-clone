@@ -17,11 +17,11 @@ export default function AnimatedSwapText({
           group-hover:-translate-y-11
         `}
       >
-        <div className={`flex ${height} items-center justify-center`}>
+        <div className={`flex ${height} items-center justify-center whitespace-nowrap`}>
           {first}
         </div>
 
-        <div className={`flex ${height} items-center justify-center`}>
+        <div className={`flex ${height} items-center justify-center whitespace-nowrap`}>
           {second}
         </div>
       </div>

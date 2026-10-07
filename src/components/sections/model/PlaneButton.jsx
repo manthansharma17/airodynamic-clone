@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { ArrowRight } from "lucide-react";
-import Globe3DDemoSecond from "./3d-globe-demo-2";
+
+// three.js is most of the bundle; load it separately so the page renders first.
+const Globe3DDemoSecond = lazy(() => import("./3d-globe-demo-2"));
 
 const PlaneButton = () => {
   return (
@@ -49,7 +51,7 @@ const PlaneButton = () => {
           <h2 className="lg:pb-4 md:pb-2 mt-3 font-heading text-[18px]  text-indigo-950 sm:text-[42px] md:text-[42px] lg:text-[50px] ">
             From <span>'A'</span> to Anywhere
           </h2>
-          <p className="max-w-2xl text-[6px] leading-relaxed text-sub text-nachtblauw sm:text-base md:text-[15px] lg:text-[18px]">
+          <p className="max-w-2xl text-[11px] leading-relaxed text-sub text-nachtblauw sm:text-base md:text-[15px] lg:text-[18px]">
             From Europe to Asia, from North to South America.
             <br />
             Always in motion, anywhere in the world.
@@ -74,7 +76,9 @@ const PlaneButton = () => {
     xl:h-[650px]
   "
         >
-          <Globe3DDemoSecond />
+          <Suspense fallback={null}>
+            <Globe3DDemoSecond />
+          </Suspense>
         </div>
       </div>
       {/* Bottom Clouds */}
